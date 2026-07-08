@@ -1,4 +1,0 @@
-sequence_id,length_bp,gc_content_percent,A,T,G,C,N,motif,motif_positions
-sample_dna_sequence,66,59.09,15,12,20,19,0,ATG,1
-high_gc_sequence,42,100.0,0,0,21,21,0,ATG,
-sequence_with_unknown_base,25,36.0,4,6,5,6,4,ATG,1;11

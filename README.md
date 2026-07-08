@@ -1,169 +1,85 @@
 # BioSeq Toolkit
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
-![License](https://img.shields.io/badge/License-MIT-green)
-![Project](https://img.shields.io/badge/Portfolio-Bioinformatics-purple)
+BioSeq Toolkit is my first beginner bioinformatics project. It is a simple Python program that analyzes DNA sequences from a FASTA file.
 
-BioSeq Toolkit is a beginner-friendly Python project for basic DNA sequence analysis.
+The goal of this project is not to make an advanced tool. The goal is to practice the basics of Python and bioinformatics in a way that I can understand and explain clearly.
 
-This is **Project 1** in my bioinformatics portfolio series. The purpose is to build a strong foundation in sequence handling before moving into larger FASTA datasets, NCBI data retrieval, restriction enzyme analysis, and sequence alignment.
+## What This Project Does
 
-## Why I Built This
+The program can:
 
-Most bioinformatics workflows begin with biological sequence data. Before analyzing large public datasets, I wanted to understand the core operations used on DNA sequences:
+- read a FASTA file
+- count A, T, G, and C bases
+- calculate GC content
+- convert DNA to RNA
+- find the reverse complement
+- search for a small DNA motif
 
-- cleaning sequence input
-- checking sequence validity
-- calculating base composition
-- calculating GC content
-- converting DNA to RNA
-- finding reverse complements
-- searching for DNA motifs
-- reading FASTA files
-
-The project is intentionally simple, but the structure is written like a real reusable Python tool.
-
-## Features
-
-| Feature | Description |
-|---|---|
-| Base counting | Counts A, T, G, C and N bases |
-| GC content | Calculates GC percentage |
-| DNA validation | Checks for invalid characters |
-| Transcription | Converts DNA to RNA |
-| Reverse complement | Produces the reverse complement strand |
-| Motif search | Finds all motif locations using 1-based indexing |
-| FASTA parser | Reads one or more sequences from FASTA files |
-| Command-line interface | Runs analysis directly from the terminal |
-| CSV export | Saves analysis results into a CSV file |
-
-## Repository Structure
+## Files in This Project
 
 ```text
 bioinformatics-project-00-seqtool/
-├── bioseq_toolkit/
-│   ├── __init__.py
-│   ├── sequence_utils.py
-│   ├── fasta_parser.py
-│   └── cli.py
-├── examples/
-│   ├── sample_sequence.fasta
-│   └── BRCA1_fragment.fasta
-├── results/
-│   └── example_output.csv
-├── tests/
-│   ├── test_sequence_utils.py
-│   └── test_fasta_parser.py
-├── docs/
-│   └── project_notes.md
-├── .github/
-│   └── workflows/
-│       └── tests.yml
+├── seqtool.py
+├── example.fasta
+├── notes.md
+├── README.md
 ├── requirements.txt
-├── .gitignore
-├── LICENSE
-└── README.md
+└── LICENSE
 ```
 
-## Installation
+## How to Run
 
-Clone the repository:
+Open the project folder in the terminal and run:
 
 ```bash
-git clone https://github.com/pankhilpandya01-star/bioinformatics-project-00-seqtool.git
-cd bioinformatics-project-00-seqtool
+python seqtool.py
 ```
 
-Create a virtual environment:
+The program uses the example FASTA file included in this repository:
 
-```bash
-python -m venv venv
+```text
+example.fasta
 ```
 
-Activate it:
+## Example Input
 
-```bash
-# Windows
-venv\Scripts\activate
-
-# macOS/Linux
-source venv/bin/activate
-```
-
-Install requirements:
-
-```bash
-pip install -r requirements.txt
-```
-
-## Run the Toolkit
-
-Analyze the sample FASTA file:
-
-```bash
-python -m bioseq_toolkit.cli examples/sample_sequence.fasta
-```
-
-Search for a motif:
-
-```bash
-python -m bioseq_toolkit.cli examples/sample_sequence.fasta --motif ATG
-```
-
-Export results to CSV:
-
-```bash
-python -m bioseq_toolkit.cli examples/sample_sequence.fasta --motif ATG --output results/my_output.csv
+```text
+>sample_sequence
+ATGCGTACGTAGCTAGCTAGCTAGCTAGCTAG
 ```
 
 ## Example Output
 
 ```text
-============================================================
-Sequence ID: sample_dna_sequence
-Length: 66 bp
-Base counts: {'A': 15, 'T': 12, 'G': 20, 'C': 19, 'N': 0}
-GC content: 59.09%
-RNA transcript: AUGCGUACGUAGCUAGCUAGCUAGCUAGCUAGCUAGCUAGCUAGCUAGCUAGCUAGCUAG
-Reverse complement: CTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTACGTACGCAT
+Sequence ID: sample_sequence
+DNA sequence: ATGCGTACGTAGCTAGCTAGCTAGCTAGCTAG
+Length: 35
+A count: 7
+T count: 8
+G count: 11
+C count: 9
+GC content: 57.14%
+RNA sequence: AUGCGUACGUAGCUAGCUAGCUAGCUAGCUAG
+Reverse complement: CTAGCTAGCTAGCTAGCTAGCTACGTACGCAT
 Motif searched: ATG
 Motif positions: [1]
 ```
 
-## Testing
+## What I Learned
 
-Run tests with:
+While making this project, I practiced:
 
-```bash
-pytest
-```
+- writing basic Python functions
+- using strings in Python
+- reading a text file
+- working with DNA sequence data
+- calculating simple biological statistics
+- organizing a small GitHub project
 
-The repository also includes a GitHub Actions workflow that runs tests automatically when code is pushed.
+## Why This Project Matters
 
-## Skills Demonstrated
+Most bioinformatics work starts with biological sequence data. This project helped me understand the basic operations that are used before moving into larger datasets and more advanced tools.
 
-- Python functions and modules
-- FASTA file parsing
-- Command-line tools
-- Unit testing with pytest
-- CSV output
-- GitHub repository organization
-- Basic biological sequence analysis
+## Next Step
 
-## Limitations
-
-This project does not perform advanced sequence alignment, gene annotation, or variant analysis. Those topics will be handled in later projects.
-
-## Next Project
-
-**Project 2: FASTA Explorer**
-
-The next project will build on this toolkit by analyzing multiple sequences, comparing sequence statistics, calculating N50, and generating summary reports.
-
-## Portfolio Series
-
-1. **BioSeq Toolkit**
-2. FASTA Explorer
-3. NCBI Sequence Fetcher
-4. Restriction Enzyme Analyzer
-5. Sequence Comparison Toolkit
+The next project will build on this by analyzing multiple FASTA sequences and creating a simple summary table.

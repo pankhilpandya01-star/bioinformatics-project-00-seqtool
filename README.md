@@ -9,6 +9,8 @@ The goal of this project is not to make an advanced tool. The goal is to practic
 The program can:
 
 - read a FASTA file
+- check whether the DNA sequence is valid
+- check whether the motif is valid
 - count A, T, G, and C bases
 - calculate GC content
 - convert DNA to RNA
@@ -21,10 +23,10 @@ The program can:
 bioinformatics-project-00-seqtool/
 ├── seqtool.py
 ├── example.fasta
-├── notes.md
 ├── README.md
 ├── requirements.txt
-└── LICENSE
+├── LICENSE
+└── .gitignore
 ```
 
 ## How to Run
@@ -35,10 +37,16 @@ Open the project folder in the terminal and run:
 python seqtool.py
 ```
 
-The program uses the example FASTA file included in this repository:
+When the program asks for the FASTA file name, enter:
 
 ```text
 example.fasta
+```
+
+When the program asks for the motif, enter:
+
+```text
+ATG
 ```
 
 ## Example Input
@@ -48,21 +56,39 @@ example.fasta
 ATGCGTACGTAGCTAGCTAGCTAGCTAGCTAG
 ```
 
-## Example Output
+## Tested Output
 
 ```text
+Welcome to BioSeq Toolkit!
+This program analyzes a DNA sequence from a FASTA file.
+
+Enter the FASTA file name: example.fasta
+Enter the DNA motif to search: ATG
+
+----------------------------------------
 Sequence ID: sample_sequence
 DNA sequence: ATGCGTACGTAGCTAGCTAGCTAGCTAGCTAG
-Length: 35
-A count: 7
-T count: 8
-G count: 11
-C count: 9
-GC content: 57.14%
-RNA sequence: AUGCGUACGUAGCUAGCUAGCUAGCUAGCUAG
-Reverse complement: CTAGCTAGCTAGCTAGCTAGCTACGTACGCAT
+Sequence length: 32 bp
+
+Base Counts
+-----------
+A : 8
+T : 8
+G : 9
+C : 7
+
+GC content: 50.0%
+
+RNA sequence:
+AUGCGUACGUAGCUAGCUAGCUAGCUAGCUAG
+
+Reverse complement:
+CTAGCTAGCTAGCTAGCTAGCTACGTACGCAT
+
 Motif searched: ATG
 Motif positions: [1]
+
+Analysis complete!
 ```
 
 ## What I Learned
@@ -73,6 +99,7 @@ While making this project, I practiced:
 - using strings in Python
 - reading a text file
 - working with DNA sequence data
+- validating simple user input
 - calculating simple biological statistics
 - organizing a small GitHub project
 

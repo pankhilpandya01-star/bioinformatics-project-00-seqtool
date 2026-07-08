@@ -56,6 +56,8 @@ def reverse_complement(sequence):
             complement = complement + "C"
         elif base == "C":
             complement = complement + "G"
+        else:
+            complement = complement + "N"
 
     reverse = complement[::-1]
     return reverse
@@ -72,23 +74,50 @@ def find_motif(sequence, motif):
     return positions
 
 
-# Main program
-sequence_id, dna_sequence = read_fasta("example.fasta")
-dna_sequence = dna_sequence.upper()
+print("Welcome to BioSeq Toolkit!")
+print("This program analyzes a DNA sequence from a FASTA file.")
+print()
 
-motif = "ATG"
+filename = input("Enter the FASTA file name: ")
+motif = input("Enter the DNA motif to search: ")
 
-a_count, t_count, g_count, c_count = count_bases(dna_sequence)
+try:
+    sequence_id, dna_sequence = read_fasta(filename)
+    dna_sequence = dna_sequence.upper()
+    motif = motif.upper()
 
-print("Sequence ID:", sequence_id)
-print("DNA sequence:", dna_sequence)
-print("Length:", len(dna_sequence))
-print("A count:", a_count)
-print("T count:", t_count)
-print("G count:", g_count)
-print("C count:", c_count)
-print("GC content:", str(gc_content(dna_sequence)) + "%")
-print("RNA sequence:", dna_to_rna(dna_sequence))
-print("Reverse complement:", reverse_complement(dna_sequence))
-print("Motif searched:", motif)
-print("Motif positions:", find_motif(dna_sequence, motif))
+    a_count, t_count, g_count, c_count = count_bases(dna_sequence)
+
+    print()
+    print("----------------------------------------")
+    print("Sequence ID:", sequence_id)
+    print("DNA sequence:", dna_sequence)
+    print("Sequence length:", len(dna_sequence), "bp")
+    print()
+
+    print("Base counts")
+    print("A:", a_count)
+    print("T:", t_count)
+    print("G:", g_count)
+    print("C:", c_count)
+    print()
+
+    print("GC content:", str(gc_content(dna_sequence)) + "%")
+    print()
+
+    print("RNA sequence:")
+    print(dna_to_rna(dna_sequence))
+    print()
+
+    print("Reverse complement:")
+    print(reverse_complement(dna_sequence))
+    print()
+
+    print("Motif searched:", motif)
+    print("Motif positions:", find_motif(dna_sequence, motif))
+    print()
+    print("Analysis complete!")
+
+except FileNotFoundError:
+    print()
+    print("File not found. Please check the file name and try again.")

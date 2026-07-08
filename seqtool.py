@@ -18,6 +18,13 @@ def read_fasta(filename):
     return sequence_id, sequence
 
 
+def is_valid_dna(sequence):
+    for base in sequence:
+        if base not in "ATGC":
+            return False
+    return True
+
+
 def count_bases(sequence):
     a_count = sequence.count("A")
     t_count = sequence.count("T")
@@ -56,8 +63,6 @@ def reverse_complement(sequence):
             complement = complement + "C"
         elif base == "C":
             complement = complement + "G"
-        else:
-            complement = complement + "N"
 
     reverse = complement[::-1]
     return reverse
@@ -86,37 +91,47 @@ try:
     dna_sequence = dna_sequence.upper()
     motif = motif.upper()
 
-    a_count, t_count, g_count, c_count = count_bases(dna_sequence)
+    if is_valid_dna(dna_sequence) == False:
+        print()
+        print("Invalid DNA sequence.")
+        print("Only A, T, G, and C are allowed.")
+    elif is_valid_dna(motif) == False:
+        print()
+        print("Invalid motif.")
+        print("Only A, T, G, and C are allowed.")
+    else:
+        a_count, t_count, g_count, c_count = count_bases(dna_sequence)
 
-    print()
-    print("----------------------------------------")
-    print("Sequence ID:", sequence_id)
-    print("DNA sequence:", dna_sequence)
-    print("Sequence length:", len(dna_sequence), "bp")
-    print()
+        print()
+        print("----------------------------------------")
+        print("Sequence ID:", sequence_id)
+        print("DNA sequence:", dna_sequence)
+        print("Sequence length:", len(dna_sequence), "bp")
+        print()
 
-    print("Base counts")
-    print("A:", a_count)
-    print("T:", t_count)
-    print("G:", g_count)
-    print("C:", c_count)
-    print()
+        print("Base Counts")
+        print("-----------")
+        print("A :", a_count)
+        print("T :", t_count)
+        print("G :", g_count)
+        print("C :", c_count)
+        print()
 
-    print("GC content:", str(gc_content(dna_sequence)) + "%")
-    print()
+        print("GC content:", str(gc_content(dna_sequence)) + "%")
+        print()
 
-    print("RNA sequence:")
-    print(dna_to_rna(dna_sequence))
-    print()
+        print("RNA sequence:")
+        print(dna_to_rna(dna_sequence))
+        print()
 
-    print("Reverse complement:")
-    print(reverse_complement(dna_sequence))
-    print()
+        print("Reverse complement:")
+        print(reverse_complement(dna_sequence))
+        print()
 
-    print("Motif searched:", motif)
-    print("Motif positions:", find_motif(dna_sequence, motif))
-    print()
-    print("Analysis complete!")
+        print("Motif searched:", motif)
+        print("Motif positions:", find_motif(dna_sequence, motif))
+        print()
+        print("Analysis complete!")
 
 except FileNotFoundError:
     print()

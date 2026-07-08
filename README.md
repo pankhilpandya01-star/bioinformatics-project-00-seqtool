@@ -23,6 +23,8 @@ The program can:
 bioinformatics-project-00-seqtool/
 ├── seqtool.py
 ├── example.fasta
+├── images/
+│   └── project_output.png
 ├── README.md
 ├── requirements.txt
 ├── LICENSE
@@ -90,6 +92,12 @@ Motif positions: [1]
 
 Analysis complete!
 ```
+
+## Program Output Screenshot
+
+The screenshot below shows the program running successfully using the sample FASTA file included in this repository.
+
+![BioSeq Toolkit Output](images/project_output.png)
 
 ## What I Learned
 

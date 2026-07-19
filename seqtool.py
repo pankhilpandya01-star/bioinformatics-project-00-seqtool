@@ -19,6 +19,9 @@ def read_fasta(filename):
 
 
 def is_valid_dna(sequence):
+    if sequence == "":
+        return False
+
     for base in sequence:
         if base not in "ATGC":
             return False
@@ -91,11 +94,11 @@ try:
     dna_sequence = dna_sequence.upper()
     motif = motif.upper()
 
-    if is_valid_dna(dna_sequence) == False:
+    if not is_valid_dna(dna_sequence):
         print()
         print("Invalid DNA sequence.")
         print("Only A, T, G, and C are allowed.")
-    elif is_valid_dna(motif) == False:
+    elif not is_valid_dna(motif):
         print()
         print("Invalid motif.")
         print("Only A, T, G, and C are allowed.")

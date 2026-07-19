@@ -1,8 +1,8 @@
 # BioSeq Toolkit
 
-BioSeq Toolkit is my first beginner bioinformatics project. It is a simple Python program that analyzes DNA sequences from a FASTA file.
+BioSeq Toolkit is the first project in my bioinformatics portfolio. It is a simple Python program that analyzes a DNA sequence from a FASTA file.
 
-The goal of this project is not to make an advanced tool. The goal is to practice the basics of Python and bioinformatics in a way that I can understand and explain clearly.
+The project demonstrates foundational Python and sequence-analysis skills using code that is intentionally small and explainable.
 
 ## What This Project Does
 
@@ -115,6 +115,14 @@ While making this project, I practiced:
 
 Most bioinformatics work starts with biological sequence data. This project helped me understand the basic operations that are used before moving into larger datasets and more advanced tools.
 
-## Next Step
+## Project Scope
 
-The next project will build on this by analyzing multiple FASTA sequences and creating a simple summary table.
+The bundled FASTA file contains a short example sequence created for learning. The program handles one FASTA record at a time and is not intended to replace established bioinformatics software.
+
+## Portfolio Progression
+
+Next project: [FASTA Explorer](https://github.com/pankhilpandya01-star/bioinformatics-project-01-fasta-explorer), which applies sequence-length and GC-content analysis to multiple real bacterial 16S rRNA records.
+
+## License
+
+This project is available under the MIT License.

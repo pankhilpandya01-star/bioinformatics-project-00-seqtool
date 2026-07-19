@@ -1,1 +1,1 @@
-pytest>=8.0.0
+# No external Python packages are required for this project.
